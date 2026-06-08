@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce UCAB | Gestionar Perfil</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo" onclick="window.location.href='index.html'">Tienda UCAB</div>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon">🌙</button>
+                <button class="btn-secondary" onclick="window.location.href='cliente.html'">Volver al Panel</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-auth">
+        <section class="auth-card">
+            <h2>Gestionar mi Perfil</h2>
+            <p class="auth-instruction">Modifica tus datos de estudiante. El correo electrónico no se puede cambiar por seguridad académica.</p>
+            
+            <form id="edit-profile-form">
+                <div class="form-group">
+                    <label for="edit-name">Nombre Completo</label>
+                    <input type="text" id="edit-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-email">Correo Electrónico (Solo Lectura)</label>
+                    <input type="email" id="edit-email" disabled>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-avatar">URL de Imagen de Avatar</label>
+                    <input type="url" id="edit-avatar" placeholder="https://picsum.photos/100">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-address">Dirección de Envío / Despacho</label>
+                    <input type="text" id="edit-address" required>
+                </div>
+                
+                <button type="submit" class="btn-success btn-full-width">Guardar Cambios</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div id="network-status" class="status-online">🟢 Online</div>
+        <p>&copy; 2026 UCAB - Programación Orientada a la Web</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/perfil.js"></script>
+</body>
+</html>
