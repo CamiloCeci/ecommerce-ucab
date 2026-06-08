@@ -10,11 +10,17 @@
     
     <header>
         <nav class="navbar">
-            <div class="logo" onclick="window.location.href='index.html'" style="cursor:pointer;">Tienda UCAB</div>
-            <div class="nav-actions" style="margin-top: 0.2rem;">
-                <button id="theme-toggle" class="btn-icon">🌙</button>
-                <button class="btn-secondary" onclick="window.location.href='login.html'" style="margin-right: 10px; padding: 0.5rem 1rem; font-size: 0.85rem;">Iniciar Sesión</button>
-                <button class="btn-primary" onclick="window.location.href='registro.html'" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Registrarse</button>
+            <div class="logo">Tienda UCAB</div>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon">Tema 🌙/☀️</button>
+                <form id="login-form">
+                    <input type="email" id="email" placeholder="Correo (ej: cliente@ucab.ve)" required>
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <button type="submit">Ingresar</button>
+                </form>
+                <div class="auth-extra-links">
+                    <a href="registro.html" style="color: var(--text-light); margin-left: 10px; font-size: 0.85rem;">Registrarse</a>
+                </div>
             </div>
         </nav>
     </header>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce UCAB | Panel de Cliente</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo" onclick="window.location.href='index.html'">Tienda UCAB</div>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon">🌙</button>
+                <button id="logout-btn" class="btn-danger">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-cliente">
+        
+        <section class="profile-card">
+            <div id="profile-display">
+                <p class="txt-muted">Cargando datos del perfil del estudiante...</p>
+            </div>
+        </section>
+
+        <section class="filters-bar">
+            <div class="filter-group-item">
+                <input type="text" id="search-input" placeholder="🔍 Buscar por título...">
+            </div>
+            
+            <div class="filter-group-item">
+                <select id="category-filter">
+                    <option value="all">Todas las Categorías</option>
+                    </select>
+            </div>
+            
+            <div class="price-range">
+                <label for="price-filter">Precio Máx: $<span id="price-value">1000</span></label>
+                <input type="range" id="price-filter" min="0" max="1000" value="1000">
+            </div>
+        </section>
+
+        <div class="grid-layout columns-wrapper">
+            
+            <div class="catalog-column">
+                <h2 class="column-title">Productos Disponibles (FakeStoreAPI)</h2>
+                <div id="products-grid" class="grid-layout">
+                    <p class="txt-centered txt-muted">Cargando catálogo dinámico...</p>
+                </div>
+            </div>
+
+            <div class="sidebar-column">
+                
+                <div class="cart-box">
+                    <h3 class="cart-title">🛒 Tu Carrito</h3>
+                    
+                    <div id="cart-container">
+                        <p class="txt-centered txt-muted">El carrito está vacío.</p>
+                    </div>
+                    
+                    <div class="cart-totals">
+                        <p>Subtotal: $<span id="cart-subtotal">0.00</span></p>
+                        <p class="total-highlight">Total: $<span id="cart-total">0.00</span></p>
+                    </div>
+                </div>
+
+                <div class="checkout-box">
+                    <h3 class="checkout-title">💳 Pasarela de Pago</h3>
+                    
+                    <form id="checkout-form">
+                        <div class="form-group">
+                            <label for="card-name">Nombre Impreso en la Tarjeta</label>
+                            <input type="text" id="card-name" placeholder="Juan Pérez" required pattern="[a-zA-Z\s]{3,}" title="Nombre del titular (mínimo 3 letras)">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-number">Número de Tarjeta</label>
+                            <input type="text" id="card-number" placeholder="4152441234567890" maxlength="16" pattern="\d{16}" title="Deben ser exactamente 16 dígitos numéricos sin espacios" required>
+                        </div>
+                        <div class="form-group card-half-input margin-right-percent">
+                            <label for="card-expiry">Vencimiento</label>
+                            <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5" pattern="(0[1-9]|1[0-2])\/\d{2}" title="Formato requerido: MM/AA (Mes/Año)" required>
+                        </div>
+                        <div class="form-group card-half-input">
+                            <label for="card-cvv">CVV</label>
+                            <input type="password" id="card-cvv" placeholder="123" maxlength="3" pattern="\d{3}" title="Código numérico de seguridad de 3 dígitos" required>
+                        </div>
+                        <div class="clear-fix"></div>
+                        
+                        <button type="submit" class="btn-success btn-full-width">Procesar Orden de Compra</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <section class="community-reviews">
+            <h2 class="column-title">Comunidad UCAB: Críticas de Productos</h2>
+            <div class="letterboxd-form">
+                <h3>Añadir Nueva Crítica</h3>
+                <form id="add-review-form">
+                    <div class="form-group max-width-select">
+                        <label for="review-product-select">Producto adquirido:</label>
+                        <select id="review-product-select" required></select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="label-inline">Puntuación:</label>
+                        <div class="stars-picker">
+                            <input type="radio" id="star5" name="stars" value="5"><label for="star5">★</label>
+                            <input type="radio" id="star4" name="stars" value="4"><label for="star4">★</label>
+                            <input type="radio" id="star3" name="stars" value="3"><label for="star3">★</label>
+                            <input type="radio" id="star2" name="stars" value="2"><label for="star2">★</label>
+                            <input type="radio" id="star1" name="stars" value="1"><label for="star1">★</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="review-text">Tu Crítica Breve</label>
+                        <textarea id="review-text" rows="3" placeholder="Escribe tu opinión sobre el producto..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Publicar en el Muro</button>
+                </form>
+            </div>
+
+            <div id="letterboxd-reviews-list" class="letterboxd-list"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="network-status" class="status-online">🟢 Online</div>
+        <p>&copy; 2026 UCAB - Programación Orientada a la Web</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/cliente.js"></script>
+</body>
+</html>

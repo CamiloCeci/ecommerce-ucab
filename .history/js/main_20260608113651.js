@@ -1,28 +1,16 @@
-// Manejo del Tema Claro / Oscuro con Persistencia y Emojis Dinámicos
+// Manejo del Tema Claro / Oscuro con Persistencia
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
-    // Leer el tema guardado o por defecto 'light'
     const currentTheme = localStorage.getItem('theme') || 'light';
     
-    // Aplicar el tema al iniciar
     document.documentElement.setAttribute('data-theme', currentTheme);
     
-    // Sincronizar el emoji correcto del botón al cargar la página
     if (themeToggleBtn) {
-        themeToggleBtn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
-        
-        // Evento de clic para alternar
         themeToggleBtn.addEventListener('click', () => {
             const theme = document.documentElement.getAttribute('data-theme');
-            if (theme === 'light') {
-                document.documentElement.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-                themeToggleBtn.textContent = '☀️'; // Muestra el sol si está oscuro
-            } else {
-                document.documentElement.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-                themeToggleBtn.textContent = '🌙'; // Muestra la luna si está claro
-            }
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
     }
     

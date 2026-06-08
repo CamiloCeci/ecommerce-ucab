@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce UCAB | Panel de Control Administrador</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar-admin">
+            <div class="logo">UCAB Store - Panel de Administración 🛠️</div>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon">Tema 🌙/☀️</button>
+                <button id="logout-btn" class="btn-danger">Salir del Panel</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-admin">
+        <section class="dashboard-metrics">
+            <h2>Dashboard de Rendimiento</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3>Total Ingresos</h3>
+                    <p id="total-earnings" class="metric-value">$0.00</p>
+                </div>
+                <div class="metric-card">
+                    <h3>Usuarios del Sistema</h3>
+                    <p class="metric-value">
+                        <span id="registered-users">0</span> Reg. / <span id="active-users">0</span> Activos
+                    </p>
+                </div>
+                <div class="metric-card">
+                    <h3>Top 3 Más Vendidos</h3>
+                    <ol id="top-products-list">
+                        <li>Cargando datos...</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="crud-section">
+            <h2>Gestión de Inventario (CRUD)</h2>
+            
+            <form id="product-form" class="admin-form">
+                <h3 id="form-action-title">Añadir Nuevo Producto</h3>
+                <input type="hidden" id="product-id"> <div class="form-group">
+                    <label for="prod-title">Nombre del Producto</label>
+                    <input type="text" id="prod-title" required>
+                </div>
+                <div class="form-group">
+                    <label for="prod-price">Precio ($)</label>
+                    <input type="number" id="prod-price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="prod-category">Categoría</label>
+                    <input type="text" id="prod-category" placeholder="Ej. Electrónica, Ropa" required>
+                </div>
+                <div class="form-group">
+                    <label for="prod-image">URL de la Imagen</label>
+                    <input type="url" id="prod-image" placeholder="https://ejemplo.com/imagen.jpg" required>
+                </div>
+                <div class="form-group">
+                    <label for="prod-description">Descripción</label>
+                    <textarea id="prod-description" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-buttons">
+                    <button type="submit" id="save-btn" class="btn-success">Guardar Producto</button>
+                    <button type="button" id="cancel-btn" class="btn-secondary" style="display:none;">Cancelar Edición</button>
+                </div>
+            </form>
+
+            <h3>Productos en Existencia</h3>
+            <div class="table-container">
+                <table id="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Imagen</th>
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventory-tbody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+
+        <hr>
+
+        <section class="sales-section">
+            <h2>Administración de Ventas e Historial</h2>
+            <div class="table-container">
+                <table id="sales-table">
+                    <thead>
+                        <tr>
+                            <th>ID Orden</th>
+                            <th>Cliente</th>
+                            <th>Productos</th>
+                            <th>Total Pagado</th>
+                            <th>Estado de Envío</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sales-tbody">
+                        </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="network-status" class="status-online">🟢 Online</div>
+        <p>Panel de Administración Estricto &copy; 2026 UCAB</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

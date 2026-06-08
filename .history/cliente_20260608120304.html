@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce UCAB | Panel de Cliente</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">UCAB Store - Cliente</div>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon">🌙</button>
+                <button id="logout-btn" class="btn-secondary">Cerrar Sesión</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-cliente">
+        <section class="profile-section">
+            <h2>Mi Perfil</h2>
+            <div id="profile-display" class="profile-card">
+                </div>
+            <button id="edit-profile-btn" class="btn-primary">Editar Perfil</button>
+        </section>
+
+        <hr>
+
+        <section class="catalog-section">
+            <h2>Catálogo de Productos</h2>
+            <div class="filters-bar">
+                <input type="text" id="search-input" placeholder="Buscar producto en tiempo real...">
+                
+                <select id="category-filter">
+                    <option value="all">Todas las categorías</option>
+                    </select>
+
+                <div class="price-range">
+                    <label for="price-filter">Precio Máx: $<span id="price-value">500</span></label>
+                    <input type="range" id="price-filter" min="0" max="1000" value="500">
+                </div>
+            </div>
+
+            <div id="products-grid" class="grid-layout">
+                </div>
+        </section>
+
+        <hr>
+
+        <section class="cart-section">
+            <h2>Tu Carrito de Compras</h2>
+            <div id="cart-container" class="cart-container">
+                <p id="empty-cart-msg">El carrito está vacío.</p>
+            </div>
+            
+            <div class="cart-totals">
+                <p>Subtotal: $<span id="cart-subtotal">0.00</span></p>
+                <h3>Total: $<span id="cart-total">0.00</span></h3>
+            </div>
+
+            <div id="checkout-box" class="checkout-form-container">
+                <h3>Pasarela de Pago</h3>
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label for="card-number">Número

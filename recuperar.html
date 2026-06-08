@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce UCAB | Recuperar Contraseña</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Tienda UCAB</div>
+            <button id="theme-toggle" class="btn-icon">🌙</button>
+        </nav>
+    </header>
+
+    <main class="container-auth">
+        <section class="auth-card">
+            <h2>Restablecer Contraseña</h2>
+            <p class="auth-instruction">Ingresa tu correo electrónico registrado y te enviaremos las instrucciones para simular el restablecimiento de tu clave.</p>
+            
+            <form id="recover-form">
+                <div class="form-group">
+                    <label for="recover-email">Correo Electrónico</label>
+                    <input type="email" id="recover-email" placeholder="ejemplo@ucab.edu.ve" required>
+                </div>
+                <button type="submit" class="btn-primary">Enviar Instrucciones</button>
+            </form>
+            
+            <div class="auth-links">
+                <a href="index.html">Volver al Inicio / Login</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div id="network-status" class="status-online">🟢 Online</div>
+        <p>&copy; 2026 UCAB - Programación Orientada a la Web</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

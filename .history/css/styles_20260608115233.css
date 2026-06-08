@@ -56,7 +56,7 @@
 /* Reset Base */
 *, *::before, *::after {
     box-sizing: border-box;
-    margin: 3;
+    margin: 0;
     padding: 0;
 }
 
@@ -132,20 +132,12 @@ img {
 .btn-icon {
     background: transparent;
     border: 1px solid var(--border-color);
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%; /* Lo hace un círculo perfecto */
-    cursor: pointer;
-    line-height: 38px;
-    text-align: center;
-    padding: 0;
-    transition: all var(--transition-fast);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
 }
-
 .btn-icon:hover {
     background-color: var(--border-color);
-    transform: scale(1.1) rotate(15deg); /* Efecto interactivo premium */
+    transform: rotate(15deg);
 }
 
 /* Elementos de Formulario Comunes */
@@ -274,7 +266,7 @@ footer {
     color: var(--text-light);
     text-align: center;
     padding: 6rem 1rem;
-    border-radius: 0;
+    border-radius: var(--radius);
     margin-bottom: 3rem;
     box-shadow: var(--shadow-lg);
 }
@@ -655,226 +647,4 @@ tr:hover {
     margin-bottom: 2rem;
     font-size: 1rem;
 }
-}
-
-/* ==========================================================================
-   MEDIA QUERIES CORREGIDOS (ALINEACIÓN AUTOMÁTICA Y AJUSTE DE ANCHO)
-   ========================================================================== */
-
-/* DISPOSITIVOS MEDIANOS (Tablets y Pantallas Medianas - 600px en adelante) */
-@media (min-width: 600px) {
-    .product-card, .metric-card {
-        width: 48%;
-        margin-right: 4%;
-        margin-bottom: 1.5rem;
-        float: left;
-    }
-    /* El segundo elemento de cada fila limpia el flotado para la siguiente línea */
-    .product-card:nth-child(2n), .metric-card:nth-child(2n) {
-        margin-right: 0;
-    }
-}
-
-/* DISPOSITIVOS GRANDES (Monitores y Laptops - 992px en adelante) */
-@media (min-width: 992px) {
-    .product-card, .metric-card {
-        width: 31.33%;   /* Se redujo el tamaño para que quepan holgadamente */
-        margin-right: 2%; /* Margen sutil entre tarjetas */
-        margin-bottom: 1.5rem;
-        float: left;
-    }
-    
-    /* Cancelamos el comportamiento de tablet (2n) */
-    .product-card:nth-child(2n), .metric-card:nth-child(2n) {
-        margin-right: 2%;
-    }
-    
-    /* El tercer elemento (el último de la fila) se pega al borde derecho exacto sin bajar */
-    .product-card:nth-child(3n), .metric-card:nth-child(3n) {
-        margin-right: 0 !important;
-    }
-    
-    /* Filtros alineados horizontalmente en una sola línea en monitores */
-    .filters-bar input, .filters-bar select, .filters-bar .price-range {
-        display: inline-block;
-        width: auto;
-        vertical-align: middle;
-        margin-right: 1.5rem;
-    }
-    .filters-bar input { width: 300px; }
-}
-
-/* ==========================================================================
-   ESTILOS ESPECÍFICOS PARA EL MÓDULO DEL CLIENTE (SIN FLEX/GRID)
-   ========================================================================== */
-
-.container-cliente {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-}
-
-/* Tarjeta del Perfil de Usuario */
-.profile-card {
-    background-color: var(--bg-card);
-    padding: 1rem;
-    border-radius: var(--radius);
-    margin-bottom: 2rem;
-    border: 1px solid var(--border-color);
-}
-
-/* Barra de Filtros */
-.filters-bar {
-    background-color: var(--bg-card);
-    padding: 1rem;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-color);
-    margin-bottom: 2rem;
-    clear: both;
-}
-
-.filter-group-item {
-    display: inline-block;
-    width: 100%;
-    max-width: 250px;
-    margin-right: 1rem;
-    margin-bottom: 0;
-}
-
-.filters-bar .price-range {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: 0.5rem;
-}
-
-.filters-bar .price-range label {
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-right: 0.5rem;
-}
-
-.filters-bar .price-range input {
-    width: 150px;
-    vertical-align: middle;
-}
-
-/* Contenedores de Columnas Principales (Catálogo vs Lateral) */
-.columns-wrapper {
-    width: 100%;
-    clear: both;
-}
-
-.catalog-column {
-    width: 100%;
-    margin-bottom: 2rem;
-}
-
-.column-title {
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
-}
-
-.sidebar-column {
-    width: 100%;
-}
-
-/* Bloques Laterales (Carrito y Checkout) */
-.cart-box {
-    background-color: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-color);
-    margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.cart-title {
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--color-primary);
-    padding-bottom: 0.5rem;
-    color: var(--text-main);
-}
-
-.cart-totals {
-    margin-top: 1.5rem;
-    padding-top: 1rem;
-    border-top: 1px dashed var(--border-color);
-    font-size: 0.95rem;
-    color: var(--text-main);
-}
-
-.total-highlight {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--text-main);
-    margin-top: 0.3rem;
-}
-
-.checkout-box {
-    background-color: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
-    margin-bottom: 2rem;
-}
-
-.checkout-title {
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--color-success);
-    padding-bottom: 0.5rem;
-    color: var(--text-main);
-}
-
-/* Divisiones internas del Checkout (Campos de Tarjeta) */
-.card-half-input {
-    width: 48%;
-    float: left;
-}
-
-.margin-right-percent {
-    margin-right: 4%;
-}
-
-/* Formulario Letterboxd */
-.letterboxd-form {
-    background-color: var(--bg-card);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-    border: 1px solid var(--border-color);
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-}
-
-.max-width-select {
-    max-width: 300px;
-}
-
-.label-inline {
-    display: inline-block;
-    margin-right: 1rem;
-}
-
-/* Clases de Utilidad Globales */
-.txt-muted { color: var(--text-muted); }
-.txt-centered { text-align: center; }
-.btn-full-width { width: 100%; }
-.clear-fix { clear: both; }
-
-/* Media Queries para comportamiento en Laptops y Monitores */
-@media (min-width: 992px) {
-    .catalog-column {
-        width: 65%;
-        float: left;
-        margin-right: 3%;
-    }
-    
-    .sidebar-column {
-        width: 32%;
-        float: left;
-    }
-    
-    .filter-group-item {
-        width: auto;
-    }
 }
