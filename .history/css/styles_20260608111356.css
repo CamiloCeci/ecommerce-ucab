@@ -1,0 +1,42 @@
+/* Variables CSS para facilitar el Modo Claro/Oscuro */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-color: #0056b3;
+    --card-bg: #f8f9fa;
+    --border-color: #dddddd;
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --primary-color: #4da3ff;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
+/* Diseño Responsive [cite: 43] */
+.hero-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .grid-productos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
